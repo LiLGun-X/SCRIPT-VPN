@@ -37,7 +37,7 @@ wget https://raw.githubusercontent.com/teamvpn/SSHPLUS24/master/Modulos/blockt.s
 chmod +x /bin/blockt
 wget https://raw.githubusercontent.com/teamvpn/SSHPLUS24/master/Modulos/botssh.sh -O /bin/botssh > /dev/null 2>&1
 chmod +x /bin/botssh
-wget https://github.com/PechScript/PHCN-VPN-MANAGER/raw/master/Modulos/conexao.sh -O /bin/conexao > /dev/null 2>&1
+wget https://github.com/PechScript/solid-engine/raw/WeGo/Modules/conexao.sh -O /bin/conexao > /dev/null 2>&1
 chmod +x /bin/conexao
 wget https://raw.githubusercontent.com/teamvpn/SSHPLUS24/master/Modulos/criarteste.sh -O /bin/criarteste > /dev/null 2>&1
 chmod +x /bin/criarteste
