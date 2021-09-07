@@ -141,7 +141,7 @@ echo -e "http_port $Pts" >> $var_sqd
 done
 echo -e "
 #Nome squid
-visible_hostname PHCN-VPN BY PECH CHHEAN - KAMPONG CHHNANG
+visible_hostname PHCN-VPN-BY-PECH_CHHEAN
 via off
 forwarded_for off
 pipeline_prefetch off" >> $var_sqd
