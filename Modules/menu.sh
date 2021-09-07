@@ -10,20 +10,20 @@ ${comando[1]} -y > /dev/null 2>&1
 touch $HOME/fim
  ) > /dev/null 2>&1 &
  tput civis
-echo -ne "\033[1;33m["
+echo -ne "\033[1;32m["
 while true; do
    for((i=0; i<18; i++)); do
    echo -ne "\033[1;31m#"
    sleep 0.1s
    done
    [[ -e $HOME/fim ]] && rm $HOME/fim && break
-   echo -e "\033[1;33m]"
+   echo -e "\033[1;32m]"
    sleep 1s
    tput cuu1
    tput dl1
-   echo -ne "\033[1;33m["
+   echo -ne "\033[1;32m["
 done
-echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+echo -e "\033[1;32m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
 }
 IP=$(cat /etc/IP)
@@ -42,20 +42,20 @@ ${comando[1]} > /dev/null 2>&1
 touch $HOME/fim
  ) > /dev/null 2>&1 &
  tput civis
-echo -ne "  \033[1;33mPLEASE WAIT A MOMENT...\033[1;37m- \033[1;33m["
+echo -ne "  \033[1;32mPLEASE WAIT A MOMENT...\033[1;37m- \033[1;32m["
 while true; do
    for((i=0; i<18; i++)); do
    echo -ne "\033[1;31m#"
    sleep 0.1s
    done
    [[ -e $HOME/fim ]] && rm $HOME/fim && break
-   echo -e "\033[1;33m]"
+   echo -e "\033[1;32m]"
    sleep 1s
    tput cuu1
    tput dl1
-   echo -ne "  \033[1;33mPLEASE WAIT A MOMENT... \033[1;37m- \033[1;33m["
+   echo -ne "  \033[1;32mPLEASE WAIT A MOMENT... \033[1;37m- \033[1;32m["
 done
-echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+echo -e "\033[1;32m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
 }
 fun_tst () {
@@ -186,37 +186,37 @@ echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mRAM:\033[1;37m$_ram \033[1;3
 echo -e "\033[1;31mTIME: \033[1;37m$_hora     \033[1;31mOVERVIEW: \033[1;37m$_usor \033[1;31mUSE: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 [[ ! -e /tmp/att ]]  && {
-    echo -e "\033[1;32mONLINE:\033[1;37m $_onlin     \033[1;31mEXPIRE: \033[1;37m$_userexp \033[1;33m    TOTAL: \033[1;37m$_tuser\033[0m"
+    echo -e "\033[1;32mONLINE:\033[1;37m $_onlin     \033[1;31mEXPIRE: \033[1;37m$_userexp \033[1;32m    TOTAL: \033[1;37m$_tuser\033[0m"
     var01='\033[1;37m•'
 } || {
-    echo -e "  \033[1;33m[\033[1;31m!\033[1;33m]  \033[1;32mEXISTE UMA ATUALIZACAO DISPONIVEL  \033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
+    echo -e "  \033[1;32m[\033[1;31m!\033[1;32m]  \033[1;32mEXISTE UMA ATUALIZACAO DISPONIVEL  \033[1;32m[\033[1;31m!\033[1;32m]\033[0m"
     var01="\033[1;32m!"
 }
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 echo -e "\033[1;32m══════════════ ◉ BY CHHEAN PECH ◉ ══════════════\033[0m"
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 echo ""
-echo -e "\033[1;31m[\033[1;36m20\033[1;31m] \033[1;37m• \033[1;33mADD HOST \033[1;31m          [\033[1;36m26\033[1;31m] \033[1;37m• \033[1;33mCHANGE ROOT PASSWORD \033[1;31m
-[\033[1;36m21\033[1;31m] \033[1;37m• \033[1;33mDELETE HOST \033[1;31m           [\033[1;36m27\033[1;31m] \033[1;37m• \033[1;33mAUTO OPEN MENU $autm \033[1;31m
-[\033[1;36m22\033[1;31m] \033[1;37m• \033[1;33mREBOOT SERVER \033[1;31m   [\033[1;36m28\033[1;31m] \033[1;37m• \033[1;33mUPDATE SCRIPT \033[1;31m
-[\033[1;36m23\033[1;31m] \033[1;37m• \033[1;33mREBOOT SYSTEM \033[1;31m       [\033[1;36m29\033[1;31m] \033[1;37m• \033[1;33mUNINSTALL SCRIPT \033[1;31m
-[\033[1;36m24\033[1;31m] \033[1;37m• \033[1;33mFIREWALL $stsf\033[1;31m        [\033[1;36m30\033[1;31m] \033[1;37m• \033[1;33mRETROSPECTIVE \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
-[\033[1;36m25\033[1;31m] \033[1;37m• \033[1;33mBOT TELEGRAM $stsbot\033[1;31m   [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mอBREAST \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m"
+echo -e "\033[1;31m[\033[1;36m20\033[1;31m] \033[1;37m• \033[1;32mADD HOST \033[1;31m          [\033[1;36m26\033[1;31m] \033[1;37m• \033[1;32mCHANGE ROOT PASSWORD \033[1;31m
+[\033[1;36m21\033[1;31m] \033[1;37m• \033[1;32mDELETE HOST \033[1;31m           [\033[1;36m27\033[1;31m] \033[1;37m• \033[1;32mAUTO OPEN MENU $autm \033[1;31m
+[\033[1;36m22\033[1;31m] \033[1;37m• \033[1;32mREBOOT SERVER \033[1;31m   [\033[1;36m28\033[1;31m] \033[1;37m• \033[1;32mUPDATE SCRIPT \033[1;31m
+[\033[1;36m23\033[1;31m] \033[1;37m• \033[1;32mREBOOT SYSTEM \033[1;31m       [\033[1;36m29\033[1;31m] \033[1;37m• \033[1;32mUNINSTALL SCRIPT \033[1;31m
+[\033[1;36m24\033[1;31m] \033[1;37m• \033[1;32mFIREWALL $stsf\033[1;31m        [\033[1;36m30\033[1;31m] \033[1;37m• \033[1;32mRETROSPECTIVE \033[1;32m<\033[1;32m<\033[1;31m< \033[1;31m
+[\033[1;36m25\033[1;31m] \033[1;37m• \033[1;32mBOT TELEGRAM $stsbot\033[1;31m   [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;32mอBREAST \033[1;32m<\033[1;32m<\033[1;31m<\033[1;31m"
 echo ""
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 echo ""
-echo -ne "\033[1;32mCHOOSE A MENU \033[1;33m?\033[1;31m?\033[1;37m : "; read x
+echo -ne "\033[1;32mCHOOSE A MENU \033[1;32m?\033[1;31m?\033[1;37m : "; read x
 case "$x" in
    20)
    clear
    addhost
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    menu2
    ;;
    21)
    clear
    delhost
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    menu2
    ;;
    22)
@@ -294,41 +294,40 @@ _userexp=$(printf '%-5s' "$_expuser")
 _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
 clear
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
-echo -e "\E[41;1;37m               ⢾ PHCN-VPN MANAGER ⡷                \E[0m"
+echo -e "\E[41;1;37m               ⢾ PHCN-VPN MANAGER ⡷               \E[0m"
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 echo -e "\033[1;32mSYSTEM             MEMORY            PROCESSOR "
-echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mRAM:\033[1;37m$_ram\033[1;31mCORE: \033[1;37m$_core\033[0m"
-echo -e "\033[1;31mTIME: \033[1;37m$_hora     \033[1;31mOVERVIEW: \033[1;37m$_usor \033[1;31mUSE: \033[1;37m$_usop\033[0m"
+echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mRAM:\033[1;37m$_ram\033[1;31mC    ORE: \033[1;37m$_core\033[0m"
+echo -e "\033[1;31mTIME: \033[1;37m$_hora     \033[1;31mVIEW: \033[1;37m$_usor \033[1;31mUSE: \033[1;37m$_usop\033[0m"
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
-echo -e "\033[1;32mONLINE:\033[1;37m $_onlin     \033[1;31mEXPIRE: \033[1;37m$_userexp \033[1;33m      Total: \033[1;37m$_tuser\033[0m"
+echo -e "\033[1;32mONLINE:\033[1;37m $_onlin     \033[1;31mEXPIRE: \033[1;37m$_userexp \033[1;32m      Total: \033[1;37m$_tuser\033[0m"
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
-echo -e "\033[1;32m══════════════ ◉ BY CHHEAN PECH ◉ ══════════════\033[0m"
-echo ""
-echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mCREATE ACCOUNT \033[1;31m         [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mSPEED TEST \033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mCREATE ACCOUNT TEST\033[1;31m     [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mBANNER \033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mDELETE ACCOUNT \033[1;31m         [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;33mDATA DATA \033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mCHECK ONLINE \033[1;31m           [\033[1;36m14\033[1;31m] \033[1;37m• \033[1;33mOPTIMIZE \033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mCHANGE DATE \033[1;31m            [\033[1;36m15\033[1;31m] \033[1;37m• \033[1;33mUSER BACKUP \033[1;31m
-[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mCHANGE LIMIT \033[1;31m           [\033[1;36m16\033[1;31m] \033[1;37m• \033[1;33mLIMITED $stsl\033[1;31m
-[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mCHANGE PASSWORD \033[1;31m        [\033[1;36m17\033[1;31m] \033[1;37m• \033[1;33mBAD VPN $stsu\033[1;31m
-[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mDELETE AN EXPIRED \033[1;31m      [\033[1;36m18\033[1;31m] \033[1;37m• \033[1;33mVPS DATA \033[1;31m
-[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mCHECK ALL ACCOUNTS \033[1;31m     [\033[1;36m19\033[1;31m] \033[1;37m• \033[1;33mMORE MENU \033[1;31m>\033[1;33m>\033[1;32m>\033[0m\033[1;31m
-[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mSYSTEM SETTINGS \033[1;31m        [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mLEAVE \033[1;32m<\033[1;33m<\033[1;31m<\033[0m \033[0m"
+echo -e "\033[1;32m═══════════════ ◉ BY CHHEAN PECH ◉ ═══════════════\033[0m"
+echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;32mCREATE ACCOUNT \033[1;31m         [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;32mSPEED TEST \033[1;31m
+[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;32mCREATE ACCOUNT TEST\033[1;31m     [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;32mBANNER \033[1;31m
+[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;32mDELETE ACCOUNT \033[1;31m         [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;32mDATA DATA \033[1;31m
+[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;32mCHECK ONLINE \033[1;31m           [\033[1;36m14\033[1;31m] \033[1;37m• \033[1;32mOPTIMIZE \033[1;31m
+[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;32mCHANGE DATE \033[1;31m            [\033[1;36m15\033[1;31m] \033[1;37m• \033[1;32mUSER BACKUP \033[1;31m
+[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;32mCHANGE LIMIT \033[1;31m           [\033[1;36m16\033[1;31m] \033[1;37m• \033[1;32mLIMITED $stsl\033[1;31m
+[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;32mCHANGE PASSWORD \033[1;31m        [\033[1;36m17\033[1;31m] \033[1;37m• \033[1;32mBAD VPN $stsu\033[1;31m
+[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;32mDELETE AN EXPIRED \033[1;31m      [\033[1;36m18\033[1;31m] \033[1;37m• \033[1;32mVPS DATA \033[1;31m
+[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;32mCHECK ALL ACCOUNTS \033[1;31m     [\033[1;36m19\033[1;31m] \033[1;37m• \033[1;32mMORE MENU \033[1;31m>\033[1;32m>\033[1;32m>\033[0m\033[1;31m
+[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;32mSYSTEM SETTINGS \033[1;31m        [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;32mLEAVE \033[1;32m<\033[1;32m<\033[1;31m<\033[0m \033[0m"
 echo "" 
 echo -e "\033[0;34m══════════════════════════════════════════════════\033[0m"
 echo ""
-echo -ne "\033[1;32mWRITE THE NUMBER TO CONNECT TO THE MENU\033[1;33m?\033[1;31m?\033[1;37m : "; read x
+echo -ne "\033[1;32mWRITE THE NUMBER TO CONNECT TO THE MENU\033[1;32m?\033[1;31m?\033[1;37m : "; read x
 
 case "$x" in 
    1 | 01)
    clear
    criarusuario
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    2 | 02)
    clear
    criarteste
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    3 | 03)
    clear
@@ -338,7 +337,7 @@ case "$x" in
    4 | 04)
    clear
    sshmonitor
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;      
    5 | 05)
    clear
@@ -364,7 +363,7 @@ case "$x" in
    9 | 09)
    clear
    infousers
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    10)
    conexao
@@ -373,7 +372,7 @@ case "$x" in
    11)
    clear
    velocity
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    12)
    clear
@@ -389,11 +388,11 @@ case "$x" in
    14)
    clear
    otimizar
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    15)
    userbackup
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    16)
    limit_ssh
@@ -406,7 +405,7 @@ case "$x" in
    18)
    clear
    detalhes
-   echo -ne "\n\033[1;31mENTER \033[1;33mBACK \033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;32mBACK \033[1;32mMENU!\033[0m"; read
    ;;
    19)
    menu2
