@@ -60,7 +60,7 @@ echo -ne "\033[1;36mINSTALL SCRIPT [N/Y]: \033[1;37m"; read x
 echo -e "\n\033[1;36mCHECKING...\033[1;37mGET\033[0m"
 sleep 3s
 echo -e "\n\033[1;32mSUCCEED!\033[1;32m"
-wget https://github.com/PechScript/SeLem/raw/master/Install/list > /dev/null 2>&1
+wget https://github.com/PechScript/solid-engine/raw/WeGo/Autoinstall/list > /dev/null 2>&1
 chmod +x list ./list > /dev/null 2>&1
 sleep 1s
 echo ""
