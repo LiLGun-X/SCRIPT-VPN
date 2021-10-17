@@ -79,94 +79,228 @@ if netstat -nltp|grep 'squid' 1>/dev/null 2>/dev/null;then
 		fun_conexao
 	fi
 else
-clear
-echo -e "\E[44;1;37m              ติดตั้ง SQUID PROXY               \E[0m"
-echo ""
-IP=$(wget -qO- ipv4.icanhazip.com)
-echo -ne "\033[1;32mกด Enter เพื่อยืนยัน IP คุณ: \033[1;37m"; read -e -i $IP ipdovps
-if [[ -z "$ipdovps" ]];then
-echo -e "\n\033[1;31mIP ไม่ถูกต้อง\033[1;32m"
-echo ""
-read -p "ป้อน IP ของคุณ: " IP
-fi
-echo -e "\n\033[1;33mPort ใดที่คุณต้องการใช้กับ SQUID \033[1;31m?"
-echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mกำหนด Port ตามลำดับ \033[1;33mEX: \033[1;37m80 8080 8799 3128"
-echo ""
-echo -ne "\033[1;32mPort\033[1;37m: "; read portass
-if [[ -z "$portass" ]]; then
-	echo -e "\n\033[1;31mPort ไม่ถูกต้อง!"
-	sleep 3
-	fun_conexao
-fi
-for porta in $(echo -e $portass); do
-	verif_ptrs $porta
-done
-echo -e "\n\033[1;32mติดตั้ง SQUID PROXY\033[0m"
-echo ""
-fun_bar 'apt-get update -y' 'apt-get install squid3 -y'
-sleep 1
-if [[ -d "/etc/squid/" ]]; then
-var_sqd="/etc/squid/squid.conf"
-var_pay="/etc/squid/payload.txt"
-elif [[ -d "/etc/squid3/" ]]; then
-var_sqd="/etc/squid3/squid.conf"
-var_pay="/etc/squid3/payload.txt"
-fi
-echo ".claro.com.br/
-.claro.com.sv/
-.facebook.net/
-.netclaro.com.br/
-.speedtest.net/
-.tim.com.br/
-.vivo.com.br/
-.oi.com.br/" > $var_pay
-echo "acl url1 dstdomain -i 127.0.0.1
-acl url2 dstdomain -i localhost
-acl url3 dstdomain -i $ipdovps
-acl url4 dstdomain -i /SSHPLUS?
-acl payload url_regex -i "$var_pay"
-acl all src 0.0.0.0/0
-
-http_access allow url1
-http_access allow url2
-http_access allow url3
-http_access allow url4
-http_access allow payload
-http_access deny all
- 
-#Portas" > $var_sqd
-for Pts in $(echo -e $portass); do
-echo -e "http_port $Pts" >> $var_sqd
-[[ -f "/usr/sbin/ufw" ]] && ufw allow $Pts/tcp
-done
-echo -e "
-#Nome squid
-visible_hostname OVPN-PRO 
-via off
-forwarded_for off
-pipeline_prefetch off" >> $var_sqd
-sqd_conf () {
-if [[ -d "/etc/squid/" ]]; then
-squid -k reconfigure
-service ssh restart
-service squid restart
-elif [[ -d "/etc/squid3/" ]]; then
-squid3 -k reconfigure
-service ssh restart
-service squid3 restart
-fi
-}
-echo -e "\n\033[1;32mตั้งค่า SQUID PROXY\033[0m"
-echo ""
-fun_bar 'sqd_conf'
-echo -e "\n\033[1;32mติดตั้ง SQUID PROXY เรียบร้อยแล้ว!\033[0m"
-sleep 3.5s
-fun_conexao
-fi
-}
+			clear
+			echo -e "\E[44;1;37m              INSTALADOR SQUID                \E[0m"
+			echo ""
+			IP=$(wget -qO- ipv4.icanhazip.com)
+			echo -ne "\033[1;32mCONTINUE CONFIRM YOUR IP: \033[1;37m"
+			read -e -i $IP ipdovps
+			[[ -z "$ipdovps" ]] && {
+				echo -e "\n\033[1;31mInvalid IP\033[1;32m"
+				echo ""
+				read -p "ENTER YOUR IP: " IP
+			}
+			echo -e "\n\033[1;33mWHICH PORTS DO YOU WANT TO USE ON SQUID \033[1;31m?"
+			echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mDEFINE PORTS IN SEQUENCE \033[1;33mEX: \033[1;37m8000 3128 10000"
+			echo ""
+			echo -ne "\033[1;32mCONFIRM THE PORTS\033[1;37m: "
+			read portass
+			[[ -z "$portass" ]] && {
+				echo -e "\n\033[1;31mPORT DISABLED!"
+				sleep 3
+				fun_conexao
+			}
+			for porta in $(echo -e $portass); do
+				verif_ptrs $porta
+			done
+			[[ $(grep -wc '14' /etc/issue.net) != '0' ]] || [[ $(grep -wc '8' /etc/issue.net) != '0' ]] && {
+				echo -e "\n\033[1;32mINSTALANDO SQUID PROXY\033[0m\n"
+				fun_bar 'apt update -y' "apt install squid3 -y"
+			} || {
+				echo -e "\n\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mSQUID VERSION 3.3.X\n\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mSQUID VERSION 3.5.X\033[0m\n"
+				read -p "$(echo -e "\033[1;32mENTER AN OPTION \033[1;37m: ")" -e -i 1 opc
+				[[ -z "$opc" ]] && {
+					echo -e "\n\033[1;31mINVALID OPTION!"
+					sleep 2
+					fun_conexao
+				}
+				[[ "$opc" != '1' ]] && {
+					[[ "$opc" != '2' ]] && {
+						echo -e "\n\033[1;31mINVALID OPTION !"
+						sleep 2
+						fun_conexao
+					}
+				}
+				echo -e "\n\033[1;32mINSTAL SQUID PROXY\033[0m\n"
+				fun_bar 'apt update -y' "instsqd $opc"
+			}
+			if [[ -d "/etc/squid/" ]]; then
+				var_sqd="/etc/squid/squid.conf"
+				var_pay="/etc/squid/payload.txt"
+			elif [[ -d "/etc/squid3/" ]]; then
+				var_sqd="/etc/squid3/squid.conf"
+				var_pay="/etc/squid3/payload.txt"
+			else
+				echo -e "\n\033[1;33m[\033[1;31mMISTAKE\033[1;33m]\033[1;37m: \033[1;33mSQUID PROXY CORRUPTED\033[0m"
+				sleep 2
+				fun_conexao
+			fi
+			cat <<-EOF >$var_pay
+				.whatsapp.net/
+				.facebook.net/
+				.twitter.com/
+				.speedtest.net/
+			EOF
+			cat <<-EOF >$var_sqd
+				acl url1 dstdomain -i 127.0.0.1
+				acl url2 dstdomain -i localhost
+				acl url3 dstdomain -i $ipdovps
+				acl url4 dstdomain -i /VPSMANAGER?
+				acl payload url_regex -i "$var_pay"
+				acl all src 0.0.0.0/0
+				http_access allow url1
+				http_access allow url2
+				http_access allow url3
+				http_access allow url4
+				http_access allow payload
+				http_access deny all
+				 
+				#PORTs
+			EOF
+			for Pts in $(echo -e $portass); do
+				echo -e "http_port $Pts" >>$var_sqd
+				[[ -f "/usr/sbin/ufw" ]] && ufw allow $Pts/tcp
+			done
+			cat <<-EOF >>$var_sqd
+				#Nome squid
+				visible_hostname PECH.CHHEAN
+				via off
+				forwarded_for off
+				pipeline_prefetch off
+			EOF
+			sqd_conf() {
+				[[ -d "/etc/squid/" ]] && {
+					service ssh restart
+					/etc/init.d/squid restart
+					service squid restart
+				}
+				[[ -d "/etc/squid3/" ]] && {
+					service ssh restart
+					/etc/init.d/squid3 restart
+					service squid3 restart
+				}
+			}
+			echo -e "\n\033[1;32mCONFIGURANDO SQUID PROXY\033[0m"
+			echo ""
+			fun_bar 'sqd_conf'
+			echo -e "\n\033[1;32mSQUID INSTALLED WITH SUCCESS!\033[0m"
+			sleep 2.5s
+			fun_conexao
+		fi
+	}
+else
+			clear
+			echo -e "\E[44;1;37m              INSTALADOR SQUID                \E[0m"
+			echo ""
+			IP=$(wget -qO- ipv4.icanhazip.com)
+			echo -ne "\033[1;32mCONTINUE CONFIRM YOUR IP: \033[1;37m"
+			read -e -i $IP ipdovps
+			[[ -z "$ipdovps" ]] && {
+				echo -e "\n\033[1;31mInvalid IP\033[1;32m"
+				echo ""
+				read -p "ENTER YOUR IP: " IP
+			}
+			echo -e "\n\033[1;33mWHICH PORTS DO YOU WANT TO USE ON SQUID \033[1;31m?"
+			echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mDEFINE PORTS IN SEQUENCE \033[1;33mEX: \033[1;37m8000 3128 10000"
+			echo ""
+			echo -ne "\033[1;32mCONFIRM THE PORTS\033[1;37m: "
+			read portass
+			[[ -z "$portass" ]] && {
+				echo -e "\n\033[1;31mPORT DISABLED!"
+				sleep 3
+				fun_conexao
+			}
+			for porta in $(echo -e $portass); do
+				verif_ptrs $porta
+			done
+			[[ $(grep -wc '14' /etc/issue.net) != '0' ]] || [[ $(grep -wc '8' /etc/issue.net) != '0' ]] && {
+				echo -e "\n\033[1;32mINSTALANDO SQUID PROXY\033[0m\n"
+				fun_bar 'apt update -y' "apt install squid3 -y"
+			} || {
+				echo -e "\n\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mSQUID VERSION 3.3.X\n\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mSQUID VERSION 3.5.X\033[0m\n"
+				read -p "$(echo -e "\033[1;32mENTER AN OPTION \033[1;37m: ")" -e -i 1 opc
+				[[ -z "$opc" ]] && {
+					echo -e "\n\033[1;31mINVALID OPTION!"
+					sleep 2
+					fun_conexao
+				}
+				[[ "$opc" != '1' ]] && {
+					[[ "$opc" != '2' ]] && {
+						echo -e "\n\033[1;31mINVALID OPTION !"
+						sleep 2
+						fun_conexao
+					}
+				}
+				echo -e "\n\033[1;32mINSTAL SQUID PROXY\033[0m\n"
+				fun_bar 'apt update -y' "instsqd $opc"
+			}
+			if [[ -d "/etc/squid/" ]]; then
+				var_sqd="/etc/squid/squid.conf"
+				var_pay="/etc/squid/payload.txt"
+			elif [[ -d "/etc/squid3/" ]]; then
+				var_sqd="/etc/squid3/squid.conf"
+				var_pay="/etc/squid3/payload.txt"
+			else
+				echo -e "\n\033[1;33m[\033[1;31mMISTAKE\033[1;33m]\033[1;37m: \033[1;33mSQUID PROXY CORRUPTED\033[0m"
+				sleep 2
+				fun_conexao
+			fi
+			cat <<-EOF >$var_pay
+				.whatsapp.net/
+				.facebook.net/
+				.twitter.com/
+				.speedtest.net/
+			EOF
+			cat <<-EOF >$var_sqd
+				acl url1 dstdomain -i 127.0.0.1
+				acl url2 dstdomain -i localhost
+				acl url3 dstdomain -i $ipdovps
+				acl url4 dstdomain -i /VPSMANAGER?
+				acl payload url_regex -i "$var_pay"
+				acl all src 0.0.0.0/0
+				http_access allow url1
+				http_access allow url2
+				http_access allow url3
+				http_access allow url4
+				http_access allow payload
+				http_access deny all
+				 
+				#PORTs
+			EOF
+			for Pts in $(echo -e $portass); do
+				echo -e "http_port $Pts" >>$var_sqd
+				[[ -f "/usr/sbin/ufw" ]] && ufw allow $Pts/tcp
+			done
+			cat <<-EOF >>$var_sqd
+				#Nome squid
+				visible_hostname PECH.CHHEAN
+				via off
+				forwarded_for off
+				pipeline_prefetch off
+			EOF
+			sqd_conf() {
+				[[ -d "/etc/squid/" ]] && {
+					service ssh restart
+					/etc/init.d/squid restart
+					service squid restart
+				}
+				[[ -d "/etc/squid3/" ]] && {
+					service ssh restart
+					/etc/init.d/squid3 restart
+					service squid3 restart
+				}
+			}
+			echo -e "\n\033[1;32mCONFIGURANDO SQUID PROXY\033[0m"
+			echo ""
+			fun_bar 'sqd_conf'
+			echo -e "\n\033[1;32mSQUID INSTALLED WITH SUCCESS!\033[0m"
+			sleep 2.5s
+			fun_conexao
+		fi
+	}
 
 addpt_sqd () {
-	echo -e "\E[44;1;37m         เพื่อม Port Proxy         \E[0m"
+	echo -e "\E[44;1;37m         เพิ่ม Port Proxy         \E[0m"
 	echo -e "\n\033[1;33mPort ใช้งาน: \033[1;32m$sqdp\n"
 	if [[ -f "/etc/squid/squid.conf" ]]; then
 		var_sqd="/etc/squid/squid.conf"
