@@ -4,5 +4,5 @@ apt-get update -y; apt-get upgrade -y; wget https://github.com/PechScript/solid-
  • Facebook: www.facebook.com/pech.chh<br>
  • Telegram: https://t.me/Pechchhean
 # CREDIT BY
- - SSHPlus
- - PechScrip
+ - LiL Gun-X 😆
+ - PechScrip 😘
