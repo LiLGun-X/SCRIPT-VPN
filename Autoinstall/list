@@ -19,6 +19,12 @@ grep -v "^PasswordAuthentication" /etc/ssh/sshd_config > /tmp/passlogin && mv /t
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 service ssh restart
 
+# install python
+apt -y install ruby
+gem install lolcat
+apt -y install figlet
+apt -y install dos2unix
+
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/addhost.sh -O /bin/addhost > /dev/null 2>&1
 chmod +x /bin/addhost
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/ajuda.sh -O /bin/ajuda > /dev/null 2>&1
