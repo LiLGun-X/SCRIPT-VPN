@@ -62,7 +62,7 @@ echo -ne "\033[1;36mDO YOU AGREE TO INSTALL THIS SCRIPT [Y/N]: \033[1;37m"; read
 sed -i 's/Port 22222/Port 22/g' /etc/ssh/sshd_config  > /dev/null 2>&1
 service ssh restart  > /dev/null 2>&1
 echo -e "\n\033[1;36mCHECKING... \033[1;37m SUCCESS\033[0m" ; rm $_Ink/list > /dev/null 2>&1; wget -P $_Ink https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Autoinstall/list > /dev/null 2>&1; verif_key
-sleep 3s
+sleep 2s
 echo "/bin/menu" > /bin/h && chmod +x /bin/h > /dev/null 2>&1
 rm versao* > /dev/null 2>&1
 wget https://raw.githubusercontent.com/NT-GIT-HUB/VPS-MANAGER-1.0/main/Install/versao > /dev/null 2>&1
