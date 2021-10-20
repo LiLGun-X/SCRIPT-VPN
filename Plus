@@ -102,6 +102,29 @@ echo ""
 echo -e "    \033[1;33mUPDATES USUALLY TAKE A LITTLE!\033[0m"
 echo ""
 fun_attlist () {
+apt-get install -qy vnstat > /dev/null 2>&1
+chown -R vnstat:vnstat /var/lib/vnstat
+cd /home/vps/public_html
+wget -q http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
+tar xf vnstat_php_frontend-1.5.1.tar.gz
+rm vnstat_php_frontend-1.5.1.tar.gz
+mv vnstat_php_frontend-1.5.1 bandwidth
+cd bandwidth
+sed -i "s/\$iface_list = array('eth0', 'sixxs');/\$iface_list = array('eth0');/g" config.php
+sed -i "s/\$language = 'nl';/\$language = 'en';/g" config.php
+sed -i 's/Internal/Internet/g' config.php
+sed -i '/SixXS IPv6/d' config.php
+sed -i "s/\$locale = 'en_US.UTF-8';/\$locale = 'en_US.UTF+8';/g" config.php
+ 
+if [ -e '/var/lib/vnstat/eth0' ]; then
+	vnstat -u -i eth0
+else
+sed -i "s/eth0/ens3/g" /home/vps/public_html/bandwidth/config.php
+vnstat -u -i ens3
+fi
+ 
+service vnstat restart -q > /dev/null 2>&1
+
 apt-get update -y
 [[ ! -d /usr/share/.plus ]] && mkdir /usr/share/.plus
 echo "crz: $(date)" > /usr/share/.plus/.plus
