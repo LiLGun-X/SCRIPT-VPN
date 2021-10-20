@@ -390,6 +390,10 @@ case "$x" in
    BW
    echo -ne "\n\033[1;31mENTER \033[1;33mTO RETURN TO \033[1;32mMENU!\033[0m"; read
    ;;
+   BWU)
+   BWU
+   echo -ne "\n\033[1;31mENTER \033[1;33mTO RETURN TO \033[1;32mMENU!\033[0m"; read
+   ;;
    16)
    limit_ssh
    ;;
