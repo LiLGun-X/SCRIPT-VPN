@@ -25,7 +25,8 @@ gem install lolcat
 apt -y install figlet
 apt -y install dos2unix
 
-
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BWU.sh -O /bin/BWU > /dev/null 2>&1
+chmod +x /bin/BWU
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BW.sh -O /bin/BW > /dev/null 2>&1
 chmod +x /bin/BW
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/addhost.sh -O /bin/addhost > /dev/null 2>&1
