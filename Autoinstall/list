@@ -19,12 +19,6 @@ grep -v "^PasswordAuthentication" /etc/ssh/sshd_config > /tmp/passlogin && mv /t
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 service ssh restart
 
-# install python
-apt -y install ruby
-gem install lolcat
-apt -y install figlet
-apt -y install dos2unix
-
 # install vnstat gui
 ok "➡ apt-get install vnstat"
 apt-get install -qy vnstat > /dev/null 2>&1
@@ -48,8 +42,14 @@ sed -i "s/eth0/ens3/g" /home/vps/public_html/bandwidth/config.php
 vnstat -u -i ens3
 fi
  
-ok "➡ service vnstat restart"
 service vnstat restart -q > /dev/null 2>&1
+
+# install python
+apt -y install ruby
+gem install lolcat
+apt -y install figlet
+apt -y install dos2unix
+
 
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BW.sh -O /bin/BW > /dev/null 2>&1
 chmod +x /bin/BW
