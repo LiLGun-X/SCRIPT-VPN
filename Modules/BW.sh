@@ -1,3 +1,4 @@
+#!/bin/bash
 INTERFACE=`ifconfig | head -n1 | awk '{print $1}' | cut -d ':' -f 1`
 TODAY=$(vnstat -i $INTERFACE | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')
 YESTERDAY=$(vnstat -i $INTERFACE | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')
