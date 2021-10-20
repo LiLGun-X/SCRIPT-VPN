@@ -20,7 +20,6 @@ echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 service ssh restart
 
 # install vnstat gui
-ok "➡ apt-get install vnstat"
 apt-get install -qy vnstat > /dev/null 2>&1
 chown -R vnstat:vnstat /var/lib/vnstat
 cd /home/vps/public_html
