@@ -492,7 +492,7 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O 10 "https://raw.githubusercontent.com/Bankzza555666/script/main/add-ws.sh"
+wget -O V1 "https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/add-VL.sh"
 wget -O 18 "https://raw.githubusercontent.com/Bankzza555666/script/main/add-vless.sh"
 wget -O 14 "https://raw.githubusercontent.com/Bankzza555666/script/main/add-tr.sh"
 wget -O 19 "https://raw.githubusercontent.com/Bankzza555666/script/main/del-ws.sh"
@@ -505,7 +505,7 @@ wget -O 13 "https://raw.githubusercontent.com/Bankzza555666/script/main/renew-ws
 wget -O 21 "https://raw.githubusercontent.com/Bankzza555666/script/main/renew-vless.sh"
 wget -O 17 "https://raw.githubusercontent.com/Bankzza555666/script/main/renew-tr.sh"
 wget -O cert "https://raw.githubusercontent.com/Bankzza555666/script/main/cert.sh"
-chmod +x 10
+chmod +x V1
 chmod +x 18
 chmod +x 14
 chmod +x 11
