@@ -212,7 +212,7 @@ ok "➡ service vnstat restart"
 service vnstat restart -q > /dev/null 2>&1
 
 ok "➡ Install V2RAY "
-wget https://raw.githubusercontent.com/Bankzza555666/script/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh -q > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Autoinstall/V2RAY.sh && chmod +x V2RAY.sh && screen -S v2ray ./V2RAY.sh -q > /dev/null 2>&1
 rm -f /root/ins-vt.sh
  
 # Iptables
