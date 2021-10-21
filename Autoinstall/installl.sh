@@ -71,6 +71,15 @@ cd
 echo
 fi
  
+fi
+mkdir /etc/v2ray
+mkdir /var/lib/premium-script;
+clear
+echo "กรุณาใส่โดเมน"
+read -p "Hostname / Domain: " host
+echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
+echo "$host" >> /etc/v2ray/domain
+
 clear
 # Install openvpn
 cr
@@ -200,6 +209,10 @@ fi
  
 ok "➡ service vnstat restart"
 service vnstat restart -q > /dev/null 2>&1
+
+ok "➡ Install V2RAY "
+wget https://raw.githubusercontent.com/Bankzza555666/script/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh -q > /dev/null 2>&1
+rm -f /root/ins-vt.sh
  
 # Iptables
 ok "➡ apt-get install iptables"
