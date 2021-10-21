@@ -83,13 +83,6 @@ echo "
 [√] Loading .....
 ----------------------------------------------
  "
-mkdir /etc/v2ray
-mkdir /var/lib/premium-script;
-clear
-echo "กรุณาใส่โดเมน"
-read -p "Hostname / Domain: " host
-echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" >> /etc/v2ray/domain
 
 
 ok "➡ apt-get update"
@@ -211,10 +204,7 @@ fi
 ok "➡ service vnstat restart"
 service vnstat restart -q > /dev/null 2>&1
 
-ok "➡ Install V2RAY "
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Autoinstall/V2RAY.sh && chmod +x V2RAY.sh && screen -S v2ray ./V2RAY.sh -q > /dev/null 2>&1
-rm -f /root/ins-vt.sh
- 
+
 # Iptables
 ok "➡ apt-get install iptables"
 apt-get install -qy iptables > /dev/null 2>&1
