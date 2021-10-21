@@ -71,7 +71,6 @@ cd
 echo
 fi
  
-fi
 mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
 clear
