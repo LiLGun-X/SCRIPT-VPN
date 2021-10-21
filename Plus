@@ -102,7 +102,6 @@ echo ""
 echo -e "    \033[1;33mUPDATES USUALLY TAKE A LITTLE!\033[0m"
 echo ""
 fun_attlist () {
-apt-get -y install vnstat
 apt-get update -y
 [[ ! -d /usr/share/.plus ]] && mkdir /usr/share/.plus
 echo "crz: $(date)" > /usr/share/.plus/.plus
