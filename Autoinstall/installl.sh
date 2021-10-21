@@ -71,13 +71,6 @@ cd
 echo
 fi
  
-mkdir /etc/v2ray
-mkdir /var/lib/premium-script;
-clear
-echo "กรุณาใส่โดเมน"
-read -p "Hostname / Domain: " host
-echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" >> /etc/v2ray/domain
 
 clear
 # Install openvpn
