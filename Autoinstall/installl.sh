@@ -232,18 +232,17 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 service ssh restart
  
  
-# download script
-cd /usr/bin
-wget -q -O sa "https://raw.githubusercontent.com/tokssa/SAVAT/master/menu"
-wget -q -O speedtest "https://raw.githubusercontent.com/tokssa/SAVAT/master/Speedtest"
-wget -q -O b-user "https://raw.githubusercontent.com/tokssa/SAVAT/master/b-user"
- 
- 
-echo "30 3 * * * root /sbin/reboot" > /etc/cron.d/reboot
-chmod +x speedtest
-chmod +x sa
-chmod +x b-user
-service cron restart -q > /dev/null 2>&1
+echo ""
+echo -e "\033[0;32m { DOWNLOAD MENU SCRIPT }${NC} "
+echo "" 
+        
+   
+	cd /usr/local/bin
+wget -q -O m "https://raw.githubusercontent.com/LiLGun-X/SCRIP-U.20/main/Menu"
+chmod +x /usr/local/bin/m
+	wget -O /usr/local/bin/Auto-Delete-Client "https://raw.githubusercontent.com/Bankzza555666/spvpn-th/main/Auto-Delete-Client"
+	chmod +x /usr/local/bin/Auto-Delete-Client 
+	apt-get -y install vnstat
  
  
 # XML Parser
@@ -257,6 +256,7 @@ mv /etc/openvpn/zenon.ovpn /home/vps/public_html/zenon.ovpn
 clear
 clear
 cr
+
 echo "
 ----------------------------------------------
 [√] INSTALL SUCCESS ^^
@@ -303,4 +303,5 @@ z
 cd
 rm -f install
 rm -f /root/install_openvpn
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Plus; chmod 777 Plus; ./Plus
  
