@@ -307,5 +307,5 @@ z
 cd
 rm -f install
 rm -f /root/install_openvpn
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Plus; chmod 777 Plus; ./Plus
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Install; chmod 777 Plus; ./Plus
  
