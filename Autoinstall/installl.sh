@@ -125,12 +125,6 @@ ok "➡ service php restart"
 service php7.0-fpm restart > /dev/null 2>&1
 fi
  
-# setting port ssh
-cd
-sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
-sed -i '/Port 22/a Port 22' /etc/ssh/sshd_config
-ok "➡ service ssh restart"
-service ssh restart > /dev/null 2>&1
  
 # install dropbear
 ok "➡ apt-get install dropbear"
