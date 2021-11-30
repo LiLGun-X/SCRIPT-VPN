@@ -1189,11 +1189,10 @@ exit 0' >$RCLOCAL
 				# OVPN_ACCESS_SERVER_PROFILE=[SxVPN]
 				client
 				dev tun
-				proto $PROTOCOL
-                                port $porta
+				proto $PROTOCOL 
 				sndbuf 0
 				rcvbuf 0
-				remote $IP 
+				remote $IP $porta
 				http-proxy $IP 8080
 				http-proxy-option CUSTOM-HEADER Host www.opensignal.com
 				resolv-retry 5
