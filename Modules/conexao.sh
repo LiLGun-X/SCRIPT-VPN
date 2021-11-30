@@ -180,7 +180,7 @@ fi
 }
 
 addpt_sqd () {
-	echo -e "\E[44;1;37m         เพื่อม Port Proxy         \E[0m"
+	echo -e "\E[44;1;37m         เพิ่ม Port Proxy         \E[0m"
 	echo -e "\n\033[1;33mPort ใช้งาน: \033[1;32m$sqdp\n"
 	if [[ -f "/etc/squid/squid.conf" ]]; then
 		var_sqd="/etc/squid/squid.conf"
@@ -627,16 +627,16 @@ fun_openvpn() {
 				else
 					mult=$(echo -e "\033[1;31m○ ")
 				fi
-				echo -e "\E[44;1;37m          GERENCIAR OPENVPN           \E[0m"
+				echo -e "\E[44;1;37m          เมนูตั้งค่า OPENVPN           \E[0m"
 				echo ""
-				echo -e "\033[1;33mPORTA\033[1;37m: \033[1;32m$opnp"
+				echo -e "\033[1;33mPORT OPENVPNที่ใช่อยู่ตอนนี้\033[1;37m: \033[1;32m$opnp"
 				echo ""
-				echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mALTERAR PORTA"
-				echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mREMOVER OPENVPN"
-				echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mOVPN VIA LINK $ovpnweb"
-				echo -e "\033[1;31m[\033[1;36m4\033[1;31m] \033[1;37m• \033[1;33mMULTILOGIN OVPN $mult"
-				echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37m• \033[1;33mALTERAR HOST DNS"
-				echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mVOLTAR"
+				echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mเปลี่ยน PORT"
+				echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mลบ OPENVPN"
+				echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mเปิด/ปินการสร้างลิ้งเพื่อดาวโหลด $ovpnweb"
+				echo -e "\033[1;31m[\033[1;36m4\033[1;31m] \033[1;37m• \033[1;33mเปิด/ปิดการเชื่อมต่อแบบไม่จำกัด  $mult"
+				echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37m• \033[1;33mเปลี่ยน HOST DNS"
+				echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mออก"
 				echo ""
 				echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;31m?\033[1;37m "
 				read option
