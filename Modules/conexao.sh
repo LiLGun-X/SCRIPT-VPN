@@ -1186,15 +1186,16 @@ exit 0' >$RCLOCAL
 			fi
 			[[ $(grep -wc 'open.py' /etc/autostart) != '0' ]] && pt_proxy=$(grep -w 'open.py' /etc/autostart| cut -d' ' -f6) || pt_proxy=80
 			cat <<-EOF >/etc/openvpn/client-common.txt
-				# OVPN_ACCESS_SERVER_PROFILE=[SSHPLUS]
+				# OVPN_ACCESS_SERVER_PROFILE=[SxVPN]
 				client
 				dev tun
 				proto $PROTOCOL
+                                port $porta
 				sndbuf 0
 				rcvbuf 0
-				remote $IP $porta
+				remote $IP 
 				http-proxy $IP 8080
-				#MODO SLOWDNS, UTILIZE O APP OPENVPN PARA ANDROID, SELECIONE O TERMUX EM APLICAÇÕES PERMITIDAS
+				http-proxy-option CUSTOM-HEADER Host www.opensignal.com
 				resolv-retry 5
 				nobind
 				persist-key
