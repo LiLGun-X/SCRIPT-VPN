@@ -108,34 +108,9 @@ service nginx restart > /dev/null 2>&1
 #install php-fpm
 if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
  
-#debian8
-ok "➡ apt-get install php"
-apt-get install -qy php5-fpm > /dev/null 2>&1
-sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
-apt-get install -qy php5-curl > /dev/null 2>&1
-ok "➡ service php restart"
-service php5-fpm restart -q > /dev/null 2>&1
-elif [[ "$VERSION_ID" = 'VERSION_ID="18.04"' || "$VERSION_ID" = 'VERSION_ID="16.04"' ]]; then
-#debian9 Ubuntu16.4
-ok "➡ apt-get install php"
-apt-get install -qy php7.0-fpm > /dev/null 2>&1
-sed -i 's/listen = \/run\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
-apt-get install -qy php7.0-curl > /dev/null 2>&1
-ok "➡ service php restart"
-service php7.0-fpm restart > /dev/null 2>&1
-fi
+
  
  
-# install dropbear
-ok "➡ apt-get install dropbear"
-apt-get install -qy dropbear > /dev/null 2>&1
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=3128/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 143"/g' /etc/default/dropbear
-echo "/bin/false" >> /etc/shells
-echo "/usr/sbin/nologin" >> /etc/shells
-ok "➡ service dropbear restart"
-service dropbear restart > /dev/null 2>&1
  
 #detail nama perusahaan
 country=ID
