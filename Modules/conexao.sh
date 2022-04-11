@@ -564,7 +564,11 @@ fun_openvpn() {
 			clear
 			echo "Execulte como root"
 			exit 2
-		
+		}
+		[[ ! -e /dev/net/tun ]] && {
+					echo -e "\033[1;31mTUN TAP NAO DISPONIVEL\033[0m"
+								sleep 2
+											exit 3
 		}
 		if grep -qs "CentOS release 5" "/etc/redhat-release"; then
 			echo "O CentOS 5 é muito antigo e não é suportado"
