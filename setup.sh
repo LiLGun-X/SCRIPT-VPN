@@ -74,12 +74,12 @@ echo '============================================='
 echo '        กำลังติดตั้ง SSH & OPENVPN '
 echo '============================================='
 sleep 3
-wget https://javatek.000webhostapp.com/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 echo '============================================='
 echo '        กำลังติดตั้ง V2RAY '
 echo '============================================='
 sleep 3
-wget https://javatek.000webhostapp.com/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 rm -f /root/ssh-vpn.sh
 rm -f /root/ins-vt.sh
 history -c
