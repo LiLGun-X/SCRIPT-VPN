@@ -101,6 +101,8 @@ wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/proxy.py
 chmod +x /etc/SSHPlus/proxy.py
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/proxy.py -O /etc/SSHPlus/open.py > /dev/null 2>&1
 chmod +x /etc/SSHPlus/open.py
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/mt -O /bin/mt > /dev/null 2>&1
+chmod +x /bin/mt
 
 [[ ! -d /etc/bot ]] && mkdir /etc/bot
 [[ ! -d /etc/bot/info-users ]] && mkdir /etc/bot/info-users
