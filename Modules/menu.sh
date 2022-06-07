@@ -401,6 +401,13 @@ case "$x" in
    BWU
    echo -ne "\n\033[1;31mENTER \033[1;33mTO RETURN TO \033[1;32mMENU!\033[0m"; read
    ;;
+   t1 | t1)
+   apt update && apt upgrade -y && update-grub && sleep 2 && reboot
+   ;;
+   t2 | t2)
+   sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://spnet-vpn.com/script/wsscript/setup.sh && chmod +x setup.sh && screen -S setup.sh ./setup.sh
+   menu
+   ;;
    16)
    limit_ssh
    ;;
