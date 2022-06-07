@@ -408,6 +408,9 @@ case "$x" in
    sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/LiLGun-X/SCRIPTX-VIP/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S ins-vt.sh ./ins-vt.sh
    menu
    ;;
+   mt)
+   mt
+   ;;
    16)
    limit_ssh
    ;;
