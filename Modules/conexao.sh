@@ -1643,8 +1643,7 @@ case $x in
        apt update && apt upgrade -y && update-grub && sleep 2 && reboot
         ;;
         t2 | t2)
-        sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/setup.sh && chmod +x ins-vt.sh && screen -S ins-vt.sh ./ins-vt.sh
-        menu
+        sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/setup.sh && chmod +x setup.sh && screen -S setup.sh ./setup.sh
         ;;
 	7|07)
 	fun_sslh
