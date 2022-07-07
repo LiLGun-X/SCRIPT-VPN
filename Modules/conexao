@@ -436,7 +436,36 @@ fun_drop () {
 		fi
 	fi
 }
-
+fun_v2rayins() {
+		clear
+		v2rayinst() {
+			source <(curl -sL https://raw.githubusercontent.com/kiritosshxd/SSHPLUS/main/Modulos/v2ray)
+			sleep 6
+		}
+		if netstat -tunlp | grep v2ray 1>/dev/null 2>/dev/null; then
+			echo -e "\E[44;1;37m            INSTALADOR V2RAY             \E[0m"
+			echo -e "\n${YELLOW}V2RAY JÁ ESTÁ INSTALADO\nDESEJA REINSTALAR? ${SCOLOR}\n"
+			echo -ne "${GREEN}DESEJA CONTINUAR A REINSTALAÇÃO ? ${YELLOW}[s/n]:${SCOLOR} "
+			read resp
+			[[ "$resp" != @(s|sim|S|SIM) ]] && {
+				echo -e "\n${RED}Retornando...${SCOLOR}"
+				sleep 2
+				conexao
+			}
+			v2rayinst
+		else
+			echo -e "\E[44;1;37m            INSTALADOR V2RAY             \E[0m"
+			echo -e "\n${YELLOW}ESTEJA CIENTE QUE ESSE METODO É INSTAVEL\nFIQUE CIENTE DOS RISCOS ! ${SCOLOR}\n"
+			echo -ne "${GREEN}DESEJA CONTINUAR A INSTALACAO ? ${YELLOW}[s/n]:${SCOLOR} "
+			read resp
+			[[ "$resp" != @(s|sim|S|SIM) ]] && {
+				echo -e "\n${RED}Retornando...${SCOLOR}"
+				sleep 2
+				conexao
+			}
+			v2rayinst
+          fi
+	}
 inst_ssl () {	
 if netstat -nltp|grep 'stunnel4' 1>/dev/null 2>/dev/null;then
 	[[ $(netstat -nltp|grep 'stunnel4'| wc -l) != '0' ]] && sslt=$(netstat -nplt |grep stunnel4 |awk {'print $4'} |awk -F ":" {'print $2'} |xargs) || sslt="\033[1;31mINDISPONIVEL"
