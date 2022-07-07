@@ -1602,6 +1602,16 @@ echo -e "\033[1;32mระบบ: \033[1;33mOPENSSH \033[1;32mPORT: \033[1;37m$(g
 } || {
 	sts1="\033[1;31m○ "
 }
+[[ "$(netstat -tunlp | grep 'trojan-go' | wc -l)" != '0' ]] && {
+	trojansts="\033[1;32m◉ "
+} || {
+	trojansts="\033[1;31m○ "
+}
+[[ "$(netstat -tunlp | grep 'v2ray' | wc -l)" != '0' ]] && {
+	xv2ray="\033[1;32m◉ "
+} || {
+	xv2ray="\033[1;31m○ "
+}
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mOPENSSH $sts6\033[1;31m
@@ -1639,14 +1649,15 @@ case $x in
 	6|06)
 	inst_ssl
 	;;
-        t1 | t1)
-       apt update && apt upgrade -y && update-grub && sleep 2 && reboot
-        ;;
-        t2 | t2)
-        sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/setup.sh && chmod +x setup.sh && screen -S setup.sh ./setup.sh
-        ;;
 	7|07)
 	fun_sslh
+	;;
+        10 | 10)
+	v2m
+	exit
+	;;
+	11 | 11)
+	trojan-go
 	;;
 	8|08)
 	menu
