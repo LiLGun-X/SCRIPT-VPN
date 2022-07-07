@@ -25,84 +25,82 @@ gem install lolcat
 apt -y install figlet
 apt -y install dos2unix
 
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BWU.sh -O /bin/BWU > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BWU -O /bin/BWU > /dev/null 2>&1
 chmod +x /bin/BWU
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BW.sh -O /bin/BW > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/BW -O /bin/BW > /dev/null 2>&1
 chmod +x /bin/BW
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/addhost.sh -O /bin/addhost > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/addhost -O /bin/addhost > /dev/null 2>&1
 chmod +x /bin/addhost
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/ajuda.sh -O /bin/ajuda > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/ajuda -O /bin/ajuda > /dev/null 2>&1
 chmod +x /bin/ajuda
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/alterarlimite.sh -O /bin/alterarlimite > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/alterarlimite -O /bin/alterarlimite > /dev/null 2>&1
 chmod +x /bin/alterarlimite
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/alterarsenha.sh -O /bin/alterarsenha > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/alterarsenha -O /bin/alterarsenha > /dev/null 2>&1
 chmod +x /bin/alterarsenha
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/attscript.sh -O /bin/attscript > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/attscript -O /bin/attscript > /dev/null 2>&1
 chmod +x /bin/attscript
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/badvpn.sh -O /bin/badvpn > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/badvpn -O /bin/badvpn > /dev/null 2>&1
 chmod +x /bin/badvpn
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/banner.sh -O /bin/banner > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/banner -O /bin/banner > /dev/null 2>&1
 chmod +x /bin/banner
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/blockt.sh -O /bin/blockt > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/blockt -O /bin/blockt > /dev/null 2>&1
 chmod +x /bin/blockt
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/botssh.sh -O /bin/botssh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/botssh -O /bin/botssh > /dev/null 2>&1
 chmod +x /bin/botssh
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/conexao.sh -O /bin/conexao > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/conexao -O /bin/conexao > /dev/null 2>&1
 chmod +x /bin/conexao
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/criarteste.sh -O /bin/criarteste > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/criarteste -O /bin/criarteste > /dev/null 2>&1
 chmod +x /bin/criarteste
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/criarusuario.sh -O /bin/criarusuario > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/criarusuario -O /bin/criarusuario > /dev/null 2>&1
 chmod +x /bin/criarusuario
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/delhost.sh -O /bin/delhost > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/delhost -O /bin/delhost > /dev/null 2>&1
 chmod +x /bin/delhost
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/delscript.sh -O /bin/delscript > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/delscript -O /bin/delscript > /dev/null 2>&1
 chmod +x /bin/delscript
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/detalhes.sh -O /bin/detalhes > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/detalhes -O /bin/detalhes > /dev/null 2>&1
 chmod +x /bin/detalhes
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/droplimiter.sh -O /bin/droplimiter > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/droplimiter -O /bin/droplimiter > /dev/null 2>&1
 chmod +x /bin/droplimiter
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/expcleaner.sh -O /bin/expcleaner > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/expcleaner -O /bin/expcleaner > /dev/null 2>&1
 chmod +x /bin/expcleaner
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/infousers.shh -O /bin/infousers > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/infousers -O /bin/infousers > /dev/null 2>&1
 chmod +x /bin/infousers
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/limiter.sh -O /bin/limiter > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/limiter -O /bin/limiter > /dev/null 2>&1
 chmod +x /bin/limiter
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/menu.sh -O /bin/menu > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/menu -O /bin/menu > /dev/null 2>&1
 chmod +x /bin/menu
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/mudardata.sh -O /bin/mudardata > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/mudardata -O /bin/mudardata > /dev/null 2>&1
 chmod +x /bin/mudardata
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/otimizar.sh -O /bin/otimizar > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/otimizar -O /bin/otimizar > /dev/null 2>&1
 chmod +x /bin/otimizar
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/reiniciarservicos.sh -O /bin/reiniciarservicos > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/reiniciarservicos -O /bin/reiniciarservicos > /dev/null 2>&1
 chmod +x /bin/reiniciarservicos
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/reiniciarsistema.sh -O /bin/reiniciarsistema > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/reiniciarsistema -O /bin/reiniciarsistema > /dev/null 2>&1
 chmod +x /bin/reiniciarsistema
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/remover.sh -O /bin/remover > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/remover -O /bin/remover > /dev/null 2>&1
 chmod +x /bin/remover
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/senharoot.sh -O /bin/senharoot > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/senharoot -O /bin/senharoot > /dev/null 2>&1
 chmod +x /bin/senharoot
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/speedtest.sh -O /bin/speedtest > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/speedtest -O /bin/speedtest > /dev/null 2>&1
 chmod +x /bin/speedtest
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/sshmonitor.sh -O /bin/sshmonitor > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/sshmonitor -O /bin/sshmonitor > /dev/null 2>&1
 chmod +x /bin/sshmonitor
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/uexpired.sh -O /bin/uexpired > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/uexpired -O /bin/uexpired > /dev/null 2>&1
 chmod +x /bin/uexpired
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/userbackup.sh -O /bin/userbackup > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/userbackup -O /bin/userbackup > /dev/null 2>&1
 chmod +x /bin/userbackup
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/verifbot.sh -O /bin/verifbot > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/verifbot -O /bin/verifbot > /dev/null 2>&1
 chmod +x /bin/verifbot
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/verifatt.sh -O /bin/verifatt > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/verifatt -O /bin/verifatt > /dev/null 2>&1
 chmod +x /bin/verifatt
-wget https://raw.githubusercontent.comLiLGun-X/SCRIPT-VPN/WeGo/Modules/cabecalho.sh -O /etc/SSHPlus/cabecalho > /dev/null 2>&1
+wget https://raw.githubusercontent.comLiLGun-X/SCRIPT-VPN/WeGo/Modules/cabecalho -O /etc/SSHPlus/cabecalho > /dev/null 2>&1
 chmod +x /etc/SSHPlus/cabecalho
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/bot.sh -O /etc/SSHPlus/bot > /dev/null 2>&1
+wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/bot -O /etc/SSHPlus/bot > /dev/null 2>&1
 chmod +x /etc/SSHPlus/bot
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/proxy.py -O /etc/SSHPlus/proxy.py > /dev/null 2>&1
 chmod +x /etc/SSHPlus/proxy.py
 wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/proxy.py -O /etc/SSHPlus/open.py > /dev/null 2>&1
 chmod +x /etc/SSHPlus/open.py
-wget https://raw.githubusercontent.com/LiLGun-X/SCRIPT-VPN/WeGo/Modules/mt -O /bin/mt > /dev/null 2>&1
-chmod +x /bin/mt
 
 [[ ! -d /etc/bot ]] && mkdir /etc/bot
 [[ ! -d /etc/bot/info-users ]] && mkdir /etc/bot/info-users
