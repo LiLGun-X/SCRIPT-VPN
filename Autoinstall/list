@@ -36,7 +36,7 @@ echo "PasswordAuthentication yes" >>/etc/ssh/sshd_config
 _dir1='/bin'
 _dir2='/etc/SSHPlus'
 rm $_dir2/ShellBot.sh $_dir2/cabecalho $_dir2/open.py $_dir2/proxy.py $_dir2/wsproxy.py >/dev/null 2>&1
-_mdls=("addhost.sh" "delhost.sh" "alterarsenha.sh" "criarusuario.sh" "expcleaner.sh" "mudardata.sh" "remover.sh" "criarteste.sh" "verifbot.sh" "droplimiter.sh" "alterarlimite.sh" "ajuda.sh" "sshmonitor.sh" "badvpn.sh" "userbackup.sh" "instsqd.sh" "blockt.sh" "otimizar.sh" "menu.sh" "speedtest.sh" "BW.sh" "BWU.sh" "banner.sh" "senharoot.sh" "reiniciarservicos.sh" "reiniciarsistema.sh" "attscript.sh" "conexao.sh" "delscript.sh" "detalhes.sh" "botssh.sh" "infousers.sh" "verifatt.sh" "limiter.sh" "uexpired.sh" "cabecalho.sh" "bot.sh" "open.py" "proxy.py" "wsproxy.py" "trojan-go" "onlineapp" "swapmemory" "initbot" "initcheck" "v2m" "pkill.sh")
+_mdls=("addhost" "delhost" "alterarsenha" "criarusuario" "expcleaner" "mudardata" "remover" "criarteste" "verifbot" "droplimiter" "alterarlimite" "ajuda" "sshmonitor" "badvpn" "userbackup" "instsqd" "blockt" "otimizar" "menu" "speedtest" "BW" "BWU" "banner" "senharoot" "reiniciarservicos" "reiniciarsistema" "attscript" "conexao" "delscript" "detalhes" "botssh" "infousers" "verifatt" "limiter" "uexpired" "cabecalho" "bot" "open.py" "proxy.py" "wsproxy.py" "trojan-go" "onlineapp" "swapmemory" "initbot" "initcheck" "v2m" "pkill.sh")
 for _arq in ${_mdls[@]}; do
 	[[ -e $_dir1/$_arq ]] && rm $_dir1/$_arq >/dev/null 2>&1
 	wget -c -P $_dir1 https://raw.githubusercontent.com/LiLGun-X/HYPER-X-SCRIPT/main/MODULOS/$_arq
