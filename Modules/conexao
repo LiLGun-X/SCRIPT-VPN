@@ -226,7 +226,6 @@ squid -k reconfigure
 service ssh restart
 service squid restart
 	fi
-}
 echo -e "\n\033[1;32mตั้งค่า SQUID PROXY\033[0m"
 echo ""
 fun_bar 'sqd_conf'
