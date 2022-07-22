@@ -8,6 +8,7 @@ system=$(cat /etc/issue.net)
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
+VERSION_ID=$(cat /etc/os-release | grep "VERSION_ID")
  (
 [[ -e $HOME/fim ]] && rm $HOME/fim
 [[ ! -d /etc/SSHPlus ]] && rm -rf /bin/menu
