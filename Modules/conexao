@@ -228,7 +228,6 @@ squid -k reconfigure
 service ssh restart
 service squid restart
 	fi
-fi
 echo -e "\n\033[1;32mติดตั้ง SQUID PROXY เรียบร้อยแล้ว!\033[0m"
 sleep 3.5s
 fun_conexao
