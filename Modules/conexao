@@ -1,7 +1,4 @@
 #!/bin/bash
-if [[ -e /etc/debian_version ]]; then
-	OS=debian
-	VERSION_ID=$(cat /etc/os-release | grep "VERSION_ID")
 if [[ -e /usr/lib/licence ]]; then
 ram1=$(free -h | grep -i mem | awk {'print $2'})
 ram2=$(free -h | grep -i mem | awk {'print $4'})
@@ -104,79 +101,17 @@ fi
 for porta in $(echo -e $portass); do
 	verif_ptrs $porta
 done
-echo "{ Install PROXY DEBIAN 8-9-10/UBUNTU 14-16-18-20 }"|lolcat
+echo -e "\n\033[1;32mติดตั้ง SQUID PROXY\033[0m"
 echo ""
-#Install squid3
-	if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
-		if [[ -e /etc/squid3/squid.conf ]]; then
-			apt-get -y remove --purge squid3
-		fi
-
-		apt-get -y install squid3
-var_sqd="/etc/squid3/squid.conf"
-var_pay="/etc/squid3/payload.txt"
-		cat > /etc/squid3/squid.conf <<END
-echo ".claro.com.br/
-.claro.com.sv/
-.facebook.net/
-.netclaro.com.br/
-.speedtest.net/
-.tim.com.br/
-.vivo.com.br/
-.oi.com.br/" > $var_pay
-acl localhost src 127.0.0.1/32 ::1
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
-acl localnet src 10.0.0.0/8
-acl localnet src 172.16.0.0/12
-acl localnet src 192.168.0.0/16
-acl SSL_ports port 443
-acl Safe_ports port 80
-acl Safe_ports port 21
-acl Safe_ports port 443
-acl Safe_ports port 70
-acl Safe_ports port 210
-acl Safe_ports port 1025-65535
-acl Safe_ports port 280
-acl Safe_ports port 488
-acl Safe_ports port 591
-acl Safe_ports port 777
-acl CONNECT method CONNECT
-acl SSH dst $ipdovps-$ipdovps/255.255.255.255
-http_access allow SSH
-http_access allow localnet
-http_access allow localhost
-http_access allow all
-refresh_pattern ^ftp:           1440    20%     10080
-refresh_pattern ^gopher:        1440    0%      1440
-refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
-refresh_pattern .               0       20%     4320
-END
-#Portas" > $var_sqd
-for Pts in $(echo -e $portass); do
-echo -e "http_port $Pts" >> $var_sqd
-[[ -f "/usr/sbin/ufw" ]] && ufw allow $Pts/tcp
-done
-echo -e "
-#Nome squid
-visible_hostname LiLGunX 
-via off
-forwarded_for off
-pipeline_prefetch off" >> $var_sqd
-
-squid -k reconfigure
-service ssh restart
-service squid3 restart
-		fi
-
-	if [[ "$VERSION_ID" = 'VERSION_ID="9"'|| "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="10"' || "$VERSION_ID" = 'VERSION_ID="16.04"' || "$VERSION_ID" = 'VERSION_ID="18.04"'|| "$VERSION_ID" = 'VERSION_ID="20.04"' ]]; then
-		if [[ -e /etc/squid/squid.conf ]]; then
-			apt-get -y remove --purge squid
-		fi
-#Install squid
-		apt-get -y install squid
+fun_bar 'apt-get update -y' 'apt-get install squid -y'
+sleep 1
+if [[ -d "/etc/squid/" ]]; then
 var_sqd="/etc/squid/squid.conf"
 var_pay="/etc/squid/payload.txt"
-		cat > /etc/squid/squid.conf <<END
+elif [[ -d "/etc/squid3/" ]]; then
+var_sqd="/etc/squid3/squid.conf"
+var_pay="/etc/squid3/payload.txt"
+fi
 echo ".claro.com.br/
 .claro.com.sv/
 .facebook.net/
@@ -185,12 +120,14 @@ echo ".claro.com.br/
 .tim.com.br/
 .vivo.com.br/
 .oi.com.br/" > $var_pay
-acl localhost src 127.0.0.1/32 ::1
+echo "acl localhost src 127.0.0.1/32 ::1
 acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
 acl localnet src 10.0.0.0/8
 acl localnet src 172.16.0.0/12
 acl localnet src 192.168.0.0/16
+acl payload url_regex -i "$var_pay"
 acl SSL_ports port 443
+acl url1 dstdomain -i 127.0.0.1
 acl Safe_ports port 80
 acl Safe_ports port 21
 acl Safe_ports port 443
@@ -204,14 +141,15 @@ acl Safe_ports port 777
 acl CONNECT method CONNECT
 acl SSH dst $ipdovps-$ipdovps/255.255.255.255
 http_access allow SSH
+http_access allow url1
 http_access allow localnet
 http_access allow localhost
-http_access allow all
+http_access deny all
 refresh_pattern ^ftp:           1440    20%     10080
 refresh_pattern ^gopher:        1440    0%      1440
 refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
 refresh_pattern .               0       20%     4320
-END
+ 
 #Portas" > $var_sqd
 for Pts in $(echo -e $portass); do
 echo -e "http_port $Pts" >> $var_sqd
@@ -219,15 +157,24 @@ echo -e "http_port $Pts" >> $var_sqd
 done
 echo -e "
 #Nome squid
-visible_hostname LiLGunX 
+visible_hostname OVPN-PRO 
 via off
 forwarded_for off
 pipeline_prefetch off" >> $var_sqd
-
+sqd_conf () {
+if [[ -d "/etc/squid/" ]]; then
 squid -k reconfigure
 service ssh restart
 service squid restart
-	fi
+elif [[ -d "/etc/squid3/" ]]; then
+squid3 -k reconfigure
+service ssh restart
+service squid3 restart
+fi
+}
+echo -e "\n\033[1;32mตั้งค่า SQUID PROXY\033[0m"
+echo ""
+fun_bar 'sqd_conf'
 echo -e "\n\033[1;32mติดตั้ง SQUID PROXY เรียบร้อยแล้ว!\033[0m"
 sleep 3.5s
 fun_conexao
